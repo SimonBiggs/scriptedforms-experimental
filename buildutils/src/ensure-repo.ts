@@ -17,18 +17,10 @@ import { ensurePackage, IEnsurePackageOptions } from "./ensure-package";
 
 // Data to ignore.
 let MISSING: { [key: string]: string[] } = {
-  "@jupyterlab/buildutils": ["path"]
+  "@scriptedforms/buildutils": ["path"]
 };
 
-let UNUSED: { [key: string]: string[] } = {
-  "@jupyterlab/apputils": ["@types/react"],
-  "@jupyterlab/application": ["font-awesome"],
-  "@jupyterlab/apputils-extension": ["es6-promise"],
-  "@jupyterlab/services": ["ws"],
-  "@jupyterlab/testutils": ["node-fetch", "identity-obj-proxy"],
-  "@jupyterlab/test-csvviewer": ["csv-spectrum"],
-  "@jupyterlab/vega4-extension": ["vega", "vega-lite"]
-};
+let UNUSED: { [key: string]: string[] } = {};
 
 let pkgData: { [key: string]: any } = {};
 let pkgPaths: { [key: string]: string } = {};
@@ -92,10 +84,10 @@ function ensureMetaPackage(): string[] {
 }
 
 /**
- * Ensure the jupyterlab application package.
+ * Ensure the scriptedforms application package.
  */
-function ensureJupyterlab(): string[] {
-  // Get the current version of JupyterLab
+function ensureScriptedforms(): string[] {
+  // Get the current version of ScriptedForms
   let cmd = "python setup.py --version";
   let version = utils.run(cmd, { stdio: "pipe" }, true);
 
@@ -120,7 +112,7 @@ function ensureJupyterlab(): string[] {
     } catch (e) {
       return;
     }
-    if (data.private === true || data.name === "@jupyterlab/metapackage") {
+    if (data.private === true || data.name === "@scriptedforms/metapackage") {
       return;
     }
 
@@ -176,8 +168,8 @@ export async function ensureIntegrity(): Promise<boolean> {
 
   // These two are not part of the workspaces but should be kept
   // in sync.
-  paths.push("./jupyterlab/tests/mock_packages/extension");
-  paths.push("./jupyterlab/tests/mock_packages/mimeextension");
+  paths.push("./scriptedforms/tests/mock_packages/extension");
+  paths.push("./scriptedforms/tests/mock_packages/mimeextension");
 
   paths.forEach(pkgPath => {
     // Read in the package.json.
@@ -198,7 +190,7 @@ export async function ensureIntegrity(): Promise<boolean> {
   // Update the metapackage.
   let pkgMessages = ensureMetaPackage();
   if (pkgMessages.length > 0) {
-    let pkgName = "@jupyterlab/metapackage";
+    let pkgName = "@scriptedforms/metapackage";
     if (!messages[pkgName]) {
       messages[pkgName] = [];
     }
@@ -216,7 +208,7 @@ export async function ensureIntegrity(): Promise<boolean> {
       locals
     };
 
-    if (name === "@jupyterlab/metapackage") {
+    if (name === "@scriptedforms/metapackage") {
       options.noUnused = false;
     }
     let pkgMessages = await ensurePackage(options);
@@ -232,10 +224,10 @@ export async function ensureIntegrity(): Promise<boolean> {
     messages["top"] = ["Update package.json"];
   }
 
-  // Handle the JupyterLab application top package.
-  pkgMessages = ensureJupyterlab();
+  // Handle the ScriptedForms application top package.
+  pkgMessages = ensureScriptedforms();
   if (pkgMessages.length > 0) {
-    let pkgName = "@jupyterlab/application-top";
+    let pkgName = "@scriptedforms/application-top";
     if (!messages[pkgName]) {
       messages[pkgName] = [];
     }
