@@ -8,8 +8,12 @@
   "repository": "git@github.com:SimonBiggs/scriptedforms-experimental.git",
   "scripts": {
     "build": "cd packages/metapackage && yarn run build",
-    "postinstall": "node scripts/ensure-buildutils.js",
-    "integrity": "node buildutils/lib/ensure-repo.js"
+    "postinstall": "node scripts/ensure-buildutils.js && yarn run install:lab",
+    "integrity": "node buildutils/lib/ensure-repo.js",
+    "clean": "yarn run clean:dev && yarn run clean:packages",
+    "clean:dev": "cd dev_mode && yarn run clean",
+    "clean:packages": "node buildutils/lib/clean-packages.js packages",
+    "install:lab": "node buildutils/lib/lab-install-packages.js packages"
   },
   "dependencies": {},
   "devDependencies": {
