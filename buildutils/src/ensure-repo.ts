@@ -239,11 +239,11 @@ export async function ensureIntegrity(): Promise<boolean> {
     console.log(JSON.stringify(messages, null, 2));
     if ("--force" in process.argv) {
       console.log(
-        "\n\nPlease run `jlpm run integrity` locally and commit the changes"
+        "\n\nPlease run `yarn run integrity` locally and commit the changes"
       );
       process.exit(1);
     }
-    utils.run("jlpm install");
+    utils.run("yarn install");
     console.log("\n\nMade integrity changes!");
     console.log("Please commit the changes by running:");
     console.log('git commit -a -m "Package integrity updates"');

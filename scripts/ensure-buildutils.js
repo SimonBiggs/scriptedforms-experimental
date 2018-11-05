@@ -40,7 +40,7 @@ if (fs.existsSync(path.join("buildutils", "lib"))) {
 
 if (!current) {
   // This must be "npm" because it is run during `pip install -e .` before
-  // jlpm is installed.
+  // yarn is installed.
   childProcess.execSync("npm run build", {
     stdio: [0, 1, 2],
     cwd: path.resolve("./buildutils")
