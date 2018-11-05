@@ -1,7 +1,7 @@
 {
-  "name": "scriptedforms-input-slider",
+  "name": "scriptedforms-input-core",
   "version": "0.1.0",
-  "description": "A slider input for ScriptedForms",
+  "description": "The input core package for ScriptedForms",
   "keywords": [
     "jupyter",
     "jupyterlab",

@@ -1,0 +1,12 @@
+{
+  "name": "scriptedforms-experimental",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:SimonBiggs/scriptedforms-experimental.git",
+  "author": "Simon Biggs <me@simonbiggs.net>",
+  "license": "AGPLv3+",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
