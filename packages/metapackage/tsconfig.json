@@ -13,5 +13,22 @@
     "target": "es2015",
     "types": []
   },
-  "include": ["src/*"]
+  "include": ["src/*"],
+  "references": [
+    {
+      "path": "../core"
+    },
+    {
+      "path": "../input-core"
+    },
+    {
+      "path": "../input-slider"
+    },
+    {
+      "path": "../run-section-core"
+    },
+    {
+      "path": "../when-section-variables-change"
+    }
+  ]
 }

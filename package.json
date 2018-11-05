@@ -1,15 +1,15 @@
 {
   "name": "scriptedforms-experimental",
   "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0+",
+  "author": "Simon Biggs <me@simonbiggs.net>",
   "main": "index.js",
   "repository": "git@github.com:SimonBiggs/scriptedforms-experimental.git",
-  "author": "Simon Biggs <me@simonbiggs.net>",
-  "license": "AGPL-3.0+",
-  "private": true,
   "scripts": {
     "build": "cd packages/metapackage && yarn run build",
-    "integrity": "node buildutils/lib/ensure-repo.js",
-    "postinstall": "node scripts/ensure-buildutils.js"
+    "postinstall": "node scripts/ensure-buildutils.js",
+    "integrity": "node buildutils/lib/ensure-repo.js"
   },
   "dependencies": {},
   "devDependencies": {
