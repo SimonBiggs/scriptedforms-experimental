@@ -59,3 +59,21 @@ typings/
 
 # next.js build output
 .next
+
+
+MANIFEST
+build
+dist
+lib
+.vscode
+
+*.py[co]
+.pytest_cache
+__pycache__
+*.egg-info
+*~
+
+.ipynb_checkpoints
+.DS_Store
+
+lerna-debug.log

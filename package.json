@@ -4,9 +4,38 @@
   "main": "index.js",
   "repository": "git@github.com:SimonBiggs/scriptedforms-experimental.git",
   "author": "Simon Biggs <me@simonbiggs.net>",
-  "license": "AGPLv3+",
+  "license": "AGPL-3.0+",
   "private": true,
+  "scripts": {
+    "build": "cd packages/metapackage && yarn run build",
+    "integrity": "node buildutils/lib/ensure-repo.js",
+    "postinstall": "node scripts/ensure-buildutils.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "eslint": "^4.12.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "~1.0.0-rc.13",
+    "lerna": "^3.4.1",
+    "lint-staged": "^7.1.0",
+    "npm-run-all": "~4.1.1",
+    "prettier": "^1.11.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.9.0",
+    "tslint-plugin-prettier": "^1.3.0",
+    "tslint-react": "^3.6.0",
+    "yarn": "1.6.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run integrity"
+    }
+  },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "buildutils"
   ]
 }
