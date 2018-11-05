@@ -1,0 +1,11 @@
+{
+  "name": "@scriptedforms/mock-extension",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@jupyterlab/launcher": "~0.19.1"
+  },
+  "jupyterlab": {
+    "extension": true
+  }
+}
