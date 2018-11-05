@@ -1,15 +1,15 @@
-import { JupyterLab, JupyterLabPlugin } from "@jupyterlab/application";
+import { JupyterLab, JupyterLabPlugin } from '@jupyterlab/application';
 
-import "../style/index.css";
+import '../style/index.css';
 
 /**
  * Initialization data for the scriptedforms-input-slider extension.
  */
 const extension: JupyterLabPlugin<void> = {
-  id: "@scriptedforms/core",
+  id: '@scriptedforms/core',
   autoStart: true,
   activate: (app: JupyterLab) => {
-    console.log("JupyterLab extension @scriptedforms/core is activated!");
+    console.log('JupyterLab extension @scriptedforms/core is activated!');
   }
 };
 
