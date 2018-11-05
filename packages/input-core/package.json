@@ -26,9 +26,9 @@
   "scripts": {
     "build": "tsc",
     "clean": "rimraf lib",
+    "install:lab": "jupyter labextension install --no-build .",
     "prepare": "npm run clean && npm run build",
-    "watch": "tsc -w",
-    "install:lab": "jupyter labextension install --no-build ."
+    "watch": "tsc -w"
   },
   "dependencies": {
     "@jupyterlab/application": "^0.19.1"
